@@ -1,0 +1,22 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+  Blog engine
+{% endblock %}
+{% block content %}
+    <center><h2 class="all_post">Posts:</h2></center>
+    <div class="master-card">
+      {% for post in posts %}
+        <div class="card">
+          <a name="date_pub_p">{{ post.date_pub }}</a><br>
+          <b name="title_p">{{ post.title }}</b><br>
+          <a name="body_p">{{ post.body|truncatechars:9 }}</a><br>
+          <a name="button_read" href="{{ post.get_absolute_url }}">Read</a><br>
+          Tags: 
+          {% for tag in post.tags.all %}
+            <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+{% endblock %}

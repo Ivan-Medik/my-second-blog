@@ -1,0 +1,10 @@
+<div class="master-card">
+  {% for post in posts %}
+  <div class="card">
+    <a name="date_pub_p">{{ post.date_pub }}</a><br>
+    <b name="title_p">{{ post.title }}</b><br>
+    <a name="body_p">{{ post.body|truncatechars:9 }}</a><br>
+    <a name="button_read" href="{{ post.get_absolute_url }}">Read</a>
+  </div>
+  {% endfor %}
+</div>
